@@ -2,89 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Physio Home Visit Booking</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- Navbar -->
-  <header class="navbar">
+  <header class="navbar" role="banner">
     <h1>PhysioConnect</h1>
-    <nav>
+    <nav aria-label="Primary">
       <a href="#book">Book a Visit</a>
       <a href="#register">Physio Register</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Book a Physiotherapy Home Visit</h2>
-    <p>Certified physiotherapists at your doorstep</p>
-    <a href="#book" class="btn">Book Now</a>
-  </section>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 id="hero-title">Book a Physiotherapy Home Visit</h2>
+      <p>Certified physiotherapists at your doorstep, when you need it most.</p>
+      <a href="#book" class="btn hero-btn">Book Now</a>
+    </section>
 
-  <!-- Booking Section -->
-  <section id="book" class="section">
-    <h2>Book a Home Visit</h2>
+    <section id="book" class="section" aria-labelledby="booking-title">
+      <div class="section-heading">
+        <h2 id="booking-title">Book a Home Visit</h2>
+        <p>Share a few details and we'll help you get started.</p>
+      </div>
 
-    <form class="card">
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your name" required />
+      <form class="card" action="#" method="post" aria-describedby="booking-note">
+        <p id="booking-note" class="form-note">Fields marked required must be completed.</p>
 
-      <label>Location</label>
-      <input type="text" placeholder="Enter your address" required />
+        <label for="patient-name">Full Name</label>
+        <input id="patient-name" name="fullName" type="text" placeholder="Enter your name" required />
 
-      <label>Date</label>
-      <input type="date" required />
+        <label for="patient-location">Location</label>
+        <input id="patient-location" name="location" type="text" placeholder="Enter your address" required />
 
-      <label>Time</label>
-      <input type="time" required />
+        <label for="visit-date">Date</label>
+        <input id="visit-date" name="date" type="date" required />
 
-      <label>Condition</label>
-      <select>
-        <option>Back Pain</option>
-        <option>Sports Injury</option>
-        <option>Post Surgery Rehab</option>
-        <option>Other</option>
-      </select>
+        <label for="visit-time">Time</label>
+        <input id="visit-time" name="time" type="time" required />
 
-      <button type="submit" class="btn">Find Physiotherapist</button>
-    </form>
-  </section>
+        <label for="condition">Condition</label>
+        <select id="condition" name="condition">
+          <option>Back Pain</option>
+          <option>Sports Injury</option>
+          <option>Post Surgery Rehab</option>
+          <option>Other</option>
+        </select>
 
-  <!-- Physio Registration -->
-  <section id="register" class="section gray">
-    <h2>Physiotherapist Registration</h2>
+        <button type="submit" class="btn">Find Physiotherapist</button>
+      </form>
+    </section>
 
-    <form class="card">
-      <label>Full Name</label>
-      <input type="text" required />
+    <section id="register" class="section gray" aria-labelledby="register-title">
+      <div class="section-heading">
+        <h2 id="register-title">Physiotherapist Registration</h2>
+        <p>Join our trusted network and offer home-visit care.</p>
+      </div>
 
-      <label>Email</label>
-      <input type="email" required />
+      <form class="card" action="#" method="post" aria-describedby="register-note">
+        <p id="register-note" class="form-note">Use your professional details for registration.</p>
 
-      <label>Qualification</label>
-      <input type="text" placeholder="BPT / MPT" required />
+        <label for="physio-name">Full Name</label>
+        <input id="physio-name" name="physioName" type="text" required />
 
-      <label>Specialization</label>
-      <input type="text" placeholder="Ortho, Neuro, Sports" />
+        <label for="physio-email">Email</label>
+        <input id="physio-email" name="email" type="email" required />
 
-      <label>Price per Session</label>
-      <input type="number" placeholder="Amount" />
+        <label for="qualification">Qualification</label>
+        <input id="qualification" name="qualification" type="text" placeholder="BPT / MPT" required />
 
-      <label>Service Radius (km)</label>
-      <input type="number" />
+        <label for="specialization">Specialization</label>
+        <input id="specialization" name="specialization" type="text" placeholder="Ortho, Neuro, Sports" />
 
-      <button type="submit" class="btn">Register</button>
-    </form>
-  </section>
+        <label for="price">Price per Session</label>
+        <input id="price" name="price" type="number" placeholder="Amount" />
 
-  <!-- Footer -->
-  <footer>
+        <label for="radius">Service Radius (km)</label>
+        <input id="radius" name="radius" type="number" />
+
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
     <p>© 2026 PhysioConnect. All rights reserved.</p>
   </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

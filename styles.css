@@ -1,85 +1,209 @@
+:root {
+  --bg: #f4f7ff;
+  --surface: #ffffff;
+  --surface-soft: #eef3ff;
+  --primary: #2f6bff;
+  --primary-dark: #1f4fd1;
+  --text: #1f2a44;
+  --muted: #5f6b85;
+  --ring: rgba(47, 107, 255, 0.35);
+  --shadow: 0 12px 30px rgba(36, 61, 127, 0.12);
+}
+
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f5f7fa;
-  color: #333;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(circle at top left, #f9fbff, var(--bg));
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 16px;
+  background: #fff;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 16px;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
-  background: #2b7cff;
-  color: white;
+  align-items: center;
+  padding: 16px 28px;
+  background: rgba(31, 79, 209, 0.95);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar h1 {
+  margin: 0;
+  letter-spacing: 0.4px;
+  font-size: 1.3rem;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 14px;
 }
 
 .navbar a {
-  color: white;
-  margin-left: 15px;
+  color: #fff;
   text-decoration: none;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.navbar a:hover,
+.navbar a:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .hero {
-  padding: 60px 20px;
+  padding: 88px 20px 76px;
   text-align: center;
-  background: linear-gradient(135deg, #2b7cff, #6aa9ff);
-  color: white;
+  background: linear-gradient(135deg, #2f6bff, #67b7ff);
+  color: #fff;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.hero p {
+  margin: 14px auto 0;
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .section {
-  padding: 50px 20px;
-  text-align: center;
+  padding: 64px 20px;
 }
 
 .section.gray {
-  background: #eef2f7;
+  background: linear-gradient(180deg, #eff4ff 0%, #f7f9ff 100%);
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin-bottom: 6px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .card {
-  max-width: 400px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-align: left;
+  width: min(460px, 100%);
+  margin: 0 auto;
+  background: var(--surface);
+  padding: 26px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(47, 107, 255, 0.08);
+}
+
+.form-note {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 label {
   display: block;
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
-input, select {
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+  border: 1px solid #cad4ea;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus-visible,
+select:focus-visible,
+.btn:focus-visible,
+.skip-link:focus-visible,
+.navbar a:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
 }
 
 .btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px;
   width: 100%;
-  background: #2b7cff;
-  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #5b9dff);
   cursor: pointer;
 }
 
 .btn:hover {
-  background: #1f63cc;
+  background: linear-gradient(135deg, var(--primary-dark), #4e8ef0);
+}
+
+.hero-btn {
+  width: auto;
+  min-width: 180px;
+  text-decoration: none;
 }
 
 footer {
-  padding: 20px;
+  padding: 22px;
   text-align: center;
-  background: #2b7cff;
-  color: white;
+  background: #1f4fd1;
+  color: #fff;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card {
+    padding: 20px;
+  }
 }
